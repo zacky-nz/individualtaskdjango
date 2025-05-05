@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    container_name: portfolio_postgres
+    environment:
+      POSTGRES_DB: portofolio_db
+      POSTGRES_USER: userku
+      POSTGRES_PASSWORD: passwordku
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: portfolio_web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=1
+      - DB_NAME=portofolio_db
+      - DB_USER=userku
+      - DB_PASSWORD=passwordku
+      - DB_HOST=db
+      - DB_PORT=5432
+
+volumes:
+  postgres_data:
