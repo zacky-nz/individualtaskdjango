@@ -22,8 +22,8 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #14001d; /* pastikan warna sama dengan background header */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.4); /* opsional: efek bayangan */
+    background-color: #14001d; /* warna sama dengan background header */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4); /* efek bayangan */
   }
   .logo {
     font-size: 24px;
